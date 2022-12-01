@@ -1,0 +1,29 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    padding-left: 28px;
+    padding-top: 18px;
+    padding-bottom: 12px;
+    height: 61px;
+}
+
+.header-logo {
+    width: 178px;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.link {
+    font-family: Roboto;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}

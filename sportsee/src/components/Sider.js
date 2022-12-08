@@ -13,7 +13,7 @@ function Sider() {
             <img src={bike} alt='bike' className="sider-icon"></img>
             <img src={muscles} alt='muscles' className="sider-icon"></img>
         </div>
-        <div className="sider-copyrights">Copyright, SportSee</div>
+        <p className="sider-copyrights">Copyright, SportSee</p>
     </div>)
 }
 

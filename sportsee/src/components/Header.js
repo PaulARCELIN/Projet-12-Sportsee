@@ -3,6 +3,7 @@ import logo from "../assets/logo.png"
 import '../styles/header.css'
 
 function Header() {
+// Logo "Sportsee" and navigation
     return (<div className="header">
         
         <img src={logo} alt='logo' className="header-logo"></img>

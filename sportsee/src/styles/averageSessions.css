@@ -1,0 +1,13 @@
+.average-session-graph {
+    position: relative;
+    background-color: #FF0000;
+    border-radius: 5px;
+}
+
+h2 {
+    position: absolute;
+}
+
+.custom-tooltip-average {
+    background-color: white;
+}

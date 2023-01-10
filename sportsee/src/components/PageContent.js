@@ -1,46 +1,48 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import '../styles/page_content.css'
 import Title from "./Title";
-import getUserData from "../api/UserData";
-import getUserActivity from "../api/UserActivity";
-import getUserPerf from "../api/UserPerf";
-import getUserSessions from "../api/UserSession";
+import KeyDataContainer from "./KeyDataContainer";
+import AverageSession from "./AverageSession";
+import RadarGraph from "./RadarGraph";
+import ScoreGraph from "./Score";
+import DailyActivity from "./DailyActivity";
 
-const search = window.location.search
-const params = new URLSearchParams (search)
-const userId = params.get ('id')
-console.log(userId)
 
-function PageContent() {
 
-    const [user, setUser] = useState({})
+function PageContent({ userData, userActivity, userSessions, userPerf }) {
+
+    let firstName = userData.userInfos.firstName
+    let keyData = userData.keyData
+    let dailySessionData = userActivity.sessions
+    let averageSessionData = userSessions.sessions 
     
-    function getInfos() {
-        getUserData(userId)
-            .then(({data}) => setUser(data));
-        /* getUserActivity(userId)
-            .then((data) => console.log(data.data))
-        getUserPerf(userId)
-            .then((data) => console.log(data.data))   
-        getUserSessions(userId)
-            .then((data) => console.log(data.data))  */        
-    }
+   function getScore () {
+        if(userData.todayScore) {
+            let score = userData.todayScore
+            return score 
+        }
+        else if(userData.score) {
+            let score = userData.score
+            return score 
+        }
+   }
     
-    useEffect(() => {
-        getInfos()
-    }, [])
-    
-    if(!user.userInfos) {
-        return null  
-    }
-    else {
-        console.log(user.userInfos)
-    }    
-    
-    const firstName = user.userInfos.firstName
 
     return (<div className="page_content">
         <Title firstName={firstName}/>
+        <div className="data-content">
+            <div className="graph-content">
+                <div className="daily-activity">
+                    <DailyActivity sessionData={dailySessionData}/>
+                </div>   
+                <div className="small-graphs-content">
+                    <AverageSession sessionData={averageSessionData} />
+                    <RadarGraph perfData={userPerf}/>
+                    <ScoreGraph scoreData={getScore()}/>
+                </div>         
+            </div>
+            <KeyDataContainer kal={keyData.calorieCount} pro={keyData.proteinCount} carbo={keyData.carbohydrateCount} lipid={keyData.lipidCount}/>
+        </div>
     </div>)
 
 }

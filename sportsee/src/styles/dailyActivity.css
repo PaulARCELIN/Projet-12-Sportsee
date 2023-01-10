@@ -1,0 +1,29 @@
+.daily-activity-container {
+    background-color: #FBFBFB;
+    padding: 24px 32px;
+    border-radius: 5px;
+    position: relative;
+}
+
+h2 {
+    position: absolute;
+    top: 18px;
+    font-size: 15px;
+}
+
+.custom-tooltip-activity {
+    background-color: #E60000;
+    color: white;
+    padding: 8px;
+}
+
+.custom-tooltip-activity p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.text-color {
+    color: #74798C;
+}

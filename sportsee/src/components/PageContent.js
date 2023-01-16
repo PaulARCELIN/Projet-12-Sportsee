@@ -8,15 +8,18 @@ import ScoreGraph from "./Score";
 import DailyActivity from "./DailyActivity";
 
 
-
+// First component with data
+// 4 props, one for each endpoint
 function PageContent({ userData, userActivity, userSessions, userPerf }) {
+
 
     let firstName = userData.userInfos.firstName
     let keyData = userData.keyData
     let dailySessionData = userActivity.sessions
     let averageSessionData = userSessions.sessions 
     
-   function getScore () {
+    //Data called "todayScore" or just "score" in other cases
+    function getScore () {
         if(userData.todayScore) {
             let score = userData.todayScore
             return score 
@@ -27,6 +30,7 @@ function PageContent({ userData, userActivity, userSessions, userPerf }) {
         }
    }
     
+   console.log(getScore())
 
     return (<div className="page_content">
         <Title firstName={firstName}/>

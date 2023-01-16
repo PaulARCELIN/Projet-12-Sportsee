@@ -29,12 +29,14 @@ const translation = {
 function formatPerformanceData (dataOriginal) {
   const { data, kind } = dataOriginal
   const newData = []
+  
   data.forEach(perf => {
     newData.push({
       value: perf.value,
       kind: translation[kind[perf.kind]]
     })
   })
+  newData.reverse()
   return newData
 }
 
@@ -43,14 +45,15 @@ function RadarGraph({perfData}) {
     const data = formatPerformanceData(perfData)
     
     return <div className="radar-graph small">
+      <div className="radar-container">
         <ResponsiveContainer width='100%' aspect={1}>
             <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
             <PolarGrid />
             <PolarAngleAxis dataKey="kind" stroke='#FFFFFF' fontSize={14} tickLine={false} />
             <Radar dataKey="value" stroke='#E60000' fill="#E60000" fillOpacity={0.7} />
-            </RadarChart>
-            
-      </ResponsiveContainer>
+            </RadarChart>   
+        </ResponsiveContainer>
+      </div>
     </div>
 }
 

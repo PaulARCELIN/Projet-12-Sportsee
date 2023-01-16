@@ -28,13 +28,26 @@ const CustomTooltip = ({ active, payload }) => {
   return null
 }
 
+//I add a "formatedDay" propertie to each object to set the ticks on the chart
+function formatedSessionsData(originalData) {
+  const ticks = ['L','M','M','J','V','S','D']
+  originalData.forEach(element => {
+    let x = element.day
+    Object.defineProperty(element, 'formatedDay', {
+      value: ticks[x-1],
+      writable: true
+    })  
+  });
+  return originalData
+}
+
 function AverageSession({sessionData}) {
 
-  const data = sessionData
-
+  const data = formatedSessionsData(sessionData)
+  
     return (
         <div className="average-session-graph small">
-            <h2>Durée moyenne des sessions</h2>
+            <h2 className="average-session-title">Durée moyenne des sessions</h2>
             <ResponsiveContainer width='100%' height='100%'>
                 <LineChart
                     width={500}
@@ -47,7 +60,7 @@ function AverageSession({sessionData}) {
                     bottom: 5,
                     }}
                 >
-                    <XAxis dataKey="day" axisLine={false} tickLine={false} padding={{ left: 0, right: 0 }} stroke='#FFFFFF' />                   
+                    <XAxis interval="preserveStartEnd" dataKey="formatedDay" axisLine={false} tickLine={false} padding={{ left: 0, right: 0 }} stroke='#FFFFFF' opacity={0.5} />                   
                     <Tooltip content={<CustomTooltip />}/>
                     <YAxis hide domain={['dataMin - 10', 'dataMax']}/>
                     <Line type="natural" dataKey="sessionLength" stroke="#FFFFFF"  dot={false} strokeWidth={2}/>

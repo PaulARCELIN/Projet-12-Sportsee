@@ -5,16 +5,18 @@
 
 .data-content {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     width: 100%;
 }
 
 .graph-content {
+    margin-left: 100px;
     width: 60%;
+    margin-bottom: 20px;
 }
 
 .small-graphs-content {
-    margin-top: 10px;
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
 }

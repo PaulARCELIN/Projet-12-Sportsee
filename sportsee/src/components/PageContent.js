@@ -6,12 +6,12 @@ import AverageSession from "./AverageSession";
 import RadarGraph from "./RadarGraph";
 import ScoreGraph from "./Score";
 import DailyActivity from "./DailyActivity";
+import PropTypes from 'prop-types'
 
 
 // First component with data
 // 4 props, one for each endpoint
 function PageContent({ userData, userActivity, userSessions, userPerf }) {
-
 
     let firstName = userData.userInfos.firstName
     let keyData = userData.keyData
@@ -30,7 +30,6 @@ function PageContent({ userData, userActivity, userSessions, userPerf }) {
         }
    }
     
-   console.log(getScore())
 
     return (<div className="page_content">
         <Title firstName={firstName}/>
@@ -52,3 +51,10 @@ function PageContent({ userData, userActivity, userSessions, userPerf }) {
 }
 
 export default PageContent
+
+PageContent.propTypes = {
+    userData: PropTypes.object,
+    userActivity: PropTypes.object,
+    userSessions: PropTypes.object,
+    userPerf: PropTypes.object
+}

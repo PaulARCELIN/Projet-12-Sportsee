@@ -1,22 +1,9 @@
 import React from "react";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 import '../styles/radargraph.css'
+import PropTypes from 'prop-types'
 
-/* const data = [
-  {
-    subject: 'Math',
-    A: 120,
-    B: 110,
-    fullMark: 150,
-  },
-  {
-    subject: 'Chinese',
-    A: 98,
-    B: 130,
-    fullMark: 150,
-  },
-]; */
-
+//Object to translate "kind" with the french names
 const translation = {
   intensity: 'Intensité',
   speed: 'Vitesse',
@@ -26,6 +13,7 @@ const translation = {
   cardio: 'Cardio',
 }
 
+//To get formated data 
 function formatPerformanceData (dataOriginal) {
   const { data, kind } = dataOriginal
   const newData = []
@@ -40,6 +28,7 @@ function formatPerformanceData (dataOriginal) {
   return newData
 }
 
+//Component 
 function RadarGraph({perfData}) {
     
     const data = formatPerformanceData(perfData)
@@ -58,3 +47,7 @@ function RadarGraph({perfData}) {
 }
 
 export default RadarGraph
+
+RadarGraph.propTypes = {
+  sessionData: PropTypes.object
+}

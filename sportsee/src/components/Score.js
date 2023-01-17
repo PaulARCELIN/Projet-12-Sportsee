@@ -1,6 +1,7 @@
 import React from 'react';
 import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
 import '../styles/score.css'
+import PropTypes from 'prop-types'
 
 /* const data = [
   {
@@ -31,11 +32,9 @@ function ScoreGraph({scoreData}) {
         <h2>Score</h2>
         
         <ResponsiveContainer width="100%" height="100%">
-       
-        
           <RadialBarChart startAngle={140} endAngle={500} cx="50%" cy="50%" innerRadius={70} outerRadius={120} barSize={10} data={data}>
           <text
-						dy="50%"
+						dy="45%"
 						dx="50%"
 						textAnchor="middle"
 						fill='#282D30'
@@ -44,7 +43,7 @@ function ScoreGraph({scoreData}) {
 						{data[1].score}%
 					</text>
           <text
-						dy="60%"
+						dy="55%"
 						dx="50%"
 						textAnchor="middle"
 						fill='#74798C'
@@ -52,7 +51,7 @@ function ScoreGraph({scoreData}) {
 						de votre
 					</text>
 					<text
-						dy="70%"
+						dy="65%"
 						dx="50%"
 						textAnchor="middle"
 						fill='#74798C'
@@ -66,3 +65,7 @@ function ScoreGraph({scoreData}) {
 }
 
 export default ScoreGraph
+
+ScoreGraph.propTypes = {
+  sessionData: PropTypes.number
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import '../styles/keydata.css'
+import PropTypes from 'prop-types'
 
 function KeyData({ count, unit, icon, type }) {
     
@@ -17,3 +18,13 @@ function KeyData({ count, unit, icon, type }) {
 }
 
 export default KeyData
+
+KeyData.propTypes = {
+    count: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
+    unit: PropTypes.string,
+    icon: PropTypes.string,
+    type: PropTypes.string
+  }

@@ -3,58 +3,28 @@ import "./styles/body.css"
 import Sider from "./components/Sider";
 import Error from "./components/Error";
 import PageContent from "./components/PageContent";
-import { USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_MAIN_DATA, USER_PERFORMANCE } from "./mocked data/mockedData";
 import { getUserId } from "./utility/utilityFunctions";
-import getUserPerf from "./api/UserPerf";
-import getUserData from "./api/UserData";
-import getUserActivity from "./api/UserActivity";
-import getUserSessions from "./api/UserSession";
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { Navigate } from "react-router";
 
 
+// Use this import for mocked datas
+/* import { getUserActivity, getUserData, getUserPerf, getUserSessions } from "./api/mockedApi"; */
+
+// Use this import for API calls
+import { getUserActivity, getUserData, getUserPerf, getUserSessions } from "./api/api";
+
+
+
+
 let userId = getUserId()
-if (userId == null) {
-    window.location.href = 'http://localhost:3001/user?id=18'
-}
 console.log('ID = '+ userId)
 
-/* let mockMainData = {}
-
-    USER_MAIN_DATA.forEach((e) => {
-        if(userId == e.id){
-            mockMainData = e
-        }
-    })
-
-let mockActivityData = {}
-
-    USER_ACTIVITY.forEach((e) => {
-        if(userId == e.userId){
-            mockActivityData = e
-        }
-    })    
-
-let mockAverageSessions = {}
-
-    USER_AVERAGE_SESSIONS.forEach((e) => {
-        if(userId == e.userId){
-            mockAverageSessions = e
-        }
-    })
-
-let mockPerformance = {}
-
-    USER_PERFORMANCE.forEach((e) => {
-        if(userId == e.userId){
-            mockPerformance = e
-        }
-    }) */
     
 function App() {
- 
 
+    
     const [activityData, setActivityData] = useState({})
     const [mainData, setMainData] = useState({})
     const [perfData, setPerfData] = useState({})
@@ -66,19 +36,27 @@ function App() {
     
     async function initData() {
         const activityData = await getUserActivity(userId)
+        if (activityData === "can not get user") {
+            return null
+        }
+        else {
+            setActivityData(activityData.data)
+        }
         const mainData = await getUserData(userId)
         const perfData = await  getUserPerf(userId)
         const sessionData = await  getUserSessions(userId)
-        setActivityData(activityData.data)
+        
         setMainData(mainData.data)
         setPerfData(perfData.data)
         setSessionData(sessionData.data)
     }
 
+    //Check if data is empty
     function dataEmptyCheck(data) {
         return Object.keys(data).length === 0 && data.constructor === Object;
     }
     
+    // Load the "error" component if data is empty
     if(dataEmptyCheck(mainData) || dataEmptyCheck(activityData) || dataEmptyCheck(sessionData) || dataEmptyCheck(perfData))
         return (<div className="App">
             <Header />
@@ -88,6 +66,7 @@ function App() {
             </div>
         </div>)
 
+    // Load the App component
     return (
     <div className="App">
       <Router>
@@ -96,9 +75,6 @@ function App() {
         <Sider />
         <Routes>
             <Route path="user/*" element={<PageContent 
-                // mocked datas for test 
-                /* userData={mockMainData} userActivity={mockActivityData} userSessions={mockAverageSessions} userPerf={mockPerformance} */
-                // 
                 userData={mainData} userActivity={activityData} userSessions={sessionData} userPerf={perfData}/>}>
             </Route>
             <Route exact path="/" element={<Navigate to="/user/" />}></Route>

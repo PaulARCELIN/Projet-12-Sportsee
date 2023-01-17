@@ -1,22 +1,9 @@
 import React from "react";
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, YAxis } from 'recharts';
 import '../styles/averageSessions.css'
+import PropTypes from 'prop-types'
 
-/* const data = [
-  {
-    name: 'L',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'M',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-]; */
-
+//Custom Tooltip function
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
@@ -63,7 +50,7 @@ function AverageSession({sessionData}) {
                     <XAxis interval="preserveStartEnd" dataKey="formatedDay" axisLine={false} tickLine={false} padding={{ left: 0, right: 0 }} stroke='#FFFFFF' opacity={0.5} />                   
                     <Tooltip content={<CustomTooltip />}/>
                     <YAxis hide domain={['dataMin - 10', 'dataMax']}/>
-                    <Line type="natural" dataKey="sessionLength" stroke="#FFFFFF"  dot={false} strokeWidth={2}/>
+                    <Line type="natural" scale="band" dataKey="sessionLength" stroke="#FFFFFF" dot={false} strokeWidth={2}/>
                 </LineChart>
             </ResponsiveContainer>
         </div>
@@ -71,3 +58,7 @@ function AverageSession({sessionData}) {
 }
 
 export default AverageSession
+
+AverageSession.propTypes = {
+  sessionData: PropTypes.array
+}

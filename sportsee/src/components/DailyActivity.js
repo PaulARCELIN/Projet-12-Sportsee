@@ -1,6 +1,7 @@
 import React from "react";
 import { BarChart, Bar,  XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import '../styles/dailyActivity.css'
+import PropTypes from 'prop-types'
 
 // To custom de Tooltip, see Rechart doc
 const CustomTooltip = ({ active, payload }) => {
@@ -15,21 +16,6 @@ const CustomTooltip = ({ active, payload }) => {
   }
   return null
 }
-/* const data = [
-  {
-    name: '1',
-    kCal: 4000,
-    kg: 2400,
-    amt: 2400,
-  },
-  {
-    name: '2',
-    kCal: 3000,
-    kg: 1398,
-    amt: 2210,
-  },
-]; */
-
 
 function DailyActivity({sessionData}) {
 
@@ -63,3 +49,7 @@ function DailyActivity({sessionData}) {
 }
 
 export default DailyActivity
+
+DailyActivity.propTypes = {
+  sessionData: PropTypes.array
+}

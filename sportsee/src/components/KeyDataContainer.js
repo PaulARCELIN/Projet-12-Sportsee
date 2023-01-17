@@ -5,8 +5,14 @@ import chicken from "../assets/chicken.png"
 import apple from "../assets/apple.png"
 import cheeseburger from "../assets/cheeseburger.png"
 import '../styles/keydatacontainer.css'
+import PropTypes from 'prop-types'
 
 function KeyDataContainer({kal, pro, carbo, lipid}) {
+
+    //Formated number for "kal"
+    kal = new Intl.NumberFormat("en-IN", {
+        maximumSignificantDigits: 3,
+      }).format(kal)
 
     return (<div className="keydatacontainer">
         <KeyData icon={energy} count={kal} unit="kCal" type="Calories"/>
@@ -17,3 +23,10 @@ function KeyDataContainer({kal, pro, carbo, lipid}) {
 }
 
 export default KeyDataContainer
+
+KeyDataContainer.propTypes = {
+    kal: PropTypes.number,
+    pro: PropTypes.number,
+    carbo: PropTypes.number,
+    lipid: PropTypes.number
+  }

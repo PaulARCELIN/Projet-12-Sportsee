@@ -2,8 +2,9 @@ import React from "react";
 import logo from "../assets/logo.png"
 import '../styles/header.css'
 
-
-
+/**
+ * Header component
+ */
 
 function Header() {
 // Logo "Sportsee" and navigation

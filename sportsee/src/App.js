@@ -16,12 +16,16 @@ import { Navigate } from "react-router";
 import { getUserActivity, getUserData, getUserPerf, getUserSessions } from "./api/api";
 
 
+/**
+ * the App component
+ * each props is the data returned by each endpoint of the API call
+ */
 
-
+// Funciton to get the userId in URL 
 let userId = getUserId()
 console.log('ID = '+ userId)
 
-    
+// Main component     
 function App() {
 
     
@@ -45,7 +49,6 @@ function App() {
         const mainData = await getUserData(userId)
         const perfData = await  getUserPerf(userId)
         const sessionData = await  getUserSessions(userId)
-        
         setMainData(mainData.data)
         setPerfData(perfData.data)
         setSessionData(sessionData.data)
@@ -66,6 +69,7 @@ function App() {
             </div>
         </div>)
 
+    
     // Load the App component
     return (
     <div className="App">

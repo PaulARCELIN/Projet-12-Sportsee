@@ -3,6 +3,11 @@ import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer, YAxis } from 'rec
 import '../styles/averageSessions.css'
 import PropTypes from 'prop-types'
 
+/**
+ * AverageSessions graph
+ */
+
+
 //Custom Tooltip function
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -14,6 +19,7 @@ const CustomTooltip = ({ active, payload }) => {
   }
   return null
 }
+
 
 //I add a "formatedDay" propertie to each object to set the ticks on the chart
 function formatedSessionsData(originalData) {
@@ -28,6 +34,8 @@ function formatedSessionsData(originalData) {
   return originalData
 }
 
+
+// The component
 function AverageSession({sessionData}) {
 
   const data = formatedSessionsData(sessionData)

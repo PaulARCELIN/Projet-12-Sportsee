@@ -1,20 +1,18 @@
 import React from 'react';
-import { RadialBarChart, RadialBar, Legend, ResponsiveContainer } from 'recharts';
+import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
 import '../styles/score.css'
 import PropTypes from 'prop-types'
 
-/* const data = [
-  {
-    name: 'score',
-    score: 12,
-  },
-]; */
-
-
+/**
+ * ScoreGraph component
+ * We had an other data (with 100 score) to adjust the real score
+ */
 
 function ScoreGraph({scoreData}) {
 
+  
   const data = [
+    // here we had the 100 score data
     {
       name: 'transparent',
       score: 100,

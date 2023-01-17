@@ -17,3 +17,7 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.recharts-layer {
+    width: 500px !important;
+}

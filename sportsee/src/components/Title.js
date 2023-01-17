@@ -2,6 +2,11 @@ import React from "react";
 import '../styles/title.css';
 import PropTypes from 'prop-types'
 
+/**
+ * Title component
+ * @returns a title with the name of the user
+ */
+
 function Title({firstName}) {
    
    return (<div className="title">
@@ -9,7 +14,6 @@ function Title({firstName}) {
         <p>Félicitation ! Vous avez explosé vos objectifs hier</p>
     </div>)
 } 
-
 
 export default Title
 

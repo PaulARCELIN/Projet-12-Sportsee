@@ -1,3 +1,10 @@
+
+/**
+ * 4 functions to make the API calls 
+ * 1 function for each endpoint
+ * @returns the data .json
+ */
+
 async function getUserActivity(id) {
     
     const response = await fetch(`http://localhost:3000/user/${id}/activity`);

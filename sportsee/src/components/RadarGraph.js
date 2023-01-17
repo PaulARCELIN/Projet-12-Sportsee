@@ -3,6 +3,13 @@ import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } fro
 import '../styles/radargraph.css'
 import PropTypes from 'prop-types'
 
+/**
+ * RadarGraph component
+ * Object "translation" to set the names of each kind in french
+ * "formatPerformanceData" to format the dats with the translation
+ */
+
+
 //Object to translate "kind" with the french names
 const translation = {
   intensity: 'Intensité',

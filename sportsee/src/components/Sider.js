@@ -5,6 +5,11 @@ import swiming from "../assets/icon_swiming.png"
 import muscles from "../assets/icon_muscles.png"
 import '../styles/sider.css'
 
+/**
+ * Sider component
+ * @returns a "div" with 4 "img" for each sport
+ */
+
 function Sider() {
     return (<div className="sider">
         <div className="sider-icons">

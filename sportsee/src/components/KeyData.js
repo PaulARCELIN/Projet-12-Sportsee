@@ -2,6 +2,12 @@ import React from "react";
 import '../styles/keydata.css'
 import PropTypes from 'prop-types'
 
+/**
+ * KeyData component
+ * Props: see PropTypes
+ */
+
+
 function KeyData({ count, unit, icon, type }) {
     
     return(<div className="keydata">

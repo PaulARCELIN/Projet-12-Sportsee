@@ -3,6 +3,11 @@ import { BarChart, Bar,  XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsiv
 import '../styles/dailyActivity.css'
 import PropTypes from 'prop-types'
 
+/**
+ * DailyActivity graph
+ * Props sessionData is an array 
+ */
+
 // To custom de Tooltip, see Rechart doc
 const CustomTooltip = ({ active, payload }) => {
   
@@ -17,6 +22,7 @@ const CustomTooltip = ({ active, payload }) => {
   return null
 }
 
+//The component
 function DailyActivity({sessionData}) {
 
   const data = sessionData

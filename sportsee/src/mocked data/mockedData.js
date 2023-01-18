@@ -1,3 +1,7 @@
+/**
+ * the mocked datas
+ */
+
 const USER_MAIN_DATA = [
     {
         id: 12,

@@ -1,6 +1,15 @@
-# Getting Started with Create React App
+### Author
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    Paul Arcelin
+
+### Prerequisites
+
+- [NodeJS (**version 16**)](https://nodejs.org/en/)
+- [npm]
+
+## Download
+
+You can clone this project https://github.com/PaulARCELIN/Projet-12.git
 
 ## Available Scripts
 

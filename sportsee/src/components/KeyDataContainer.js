@@ -7,6 +7,12 @@ import cheeseburger from "../assets/cheeseburger.png"
 import '../styles/keydatacontainer.css'
 import PropTypes from 'prop-types'
 
+/**
+ * KeyDataContainer component
+ * The part that contains the 4 small "KeyData" components
+ */
+
+
 function KeyDataContainer({kal, pro, carbo, lipid}) {
 
     //Formated number for "kal"
